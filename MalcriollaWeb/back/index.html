@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MALCRIOLLA | Official Online Store</title>
+    <style>
+        /* --- ESTILO VIVIENNE WESTWOOD: LOGO FLOTANTE SOBRE IMAGEN --- */
+        body { 
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background: #ffffff; 
+            margin: 0; 
+            padding: 0; 
+            color: #000000;
+            -webkit-font-smoothing: antialiased;
+        }
+
+       /* Cabecera transparente fija sobre el carrusel */
+        header { 
+            text-align: center; 
+            background: transparent; 
+            padding: 30px 0;
+            position: absolute; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .logo-showroom {
+            max-height: 45px; 
+            width: auto;       
+            display: inline-block;
+        }
+
+        p.subtitle { 
+            margin: 8px 0 0 0; 
+            color: #000000; /* Pasamos el texto a negro para que haga juego con tu logo */
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 400;
+        }
+        
+        /* --- EDITORIAL HERO SLIDER A PANTALLA COMPLETA --- */
+        .carrusel-contenedor { 
+            width: 100%;
+            position: relative; 
+            margin: 0 auto 60px auto; 
+            overflow: hidden; 
+        }
+        .carrusel-slides { 
+            display: flex; 
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .slide { 
+            min-width: 100%; 
+            position: relative; 
+        }
+        .slide img { 
+            width: 100%; 
+            height: 85vh; /* Ocupa casi toda la altura de la pantalla al entrar */
+            object-fit: cover; 
+            display: block; 
+        }
+        .slide-texto { 
+            position: absolute; 
+            bottom: 60px; 
+            left: 50px; 
+            color: #ffffff; 
+            font-size: 32px; 
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+        }
+        
+        /* Flechas tipográficas integradas al slider */
+        .btn-carrusel { 
+            position: absolute; 
+            top: 50%; 
+            transform: translateY(-50%); 
+            background: transparent; 
+            color: #ffffff; /* Blancas para que se vean sobre las fotos del hero */
+            border: none; 
+            font-size: 35px; 
+            font-weight: 100;
+            cursor: pointer; 
+            transition: opacity 0.3s;
+            padding: 0 25px;
+            z-index: 999;
+            text-shadow: 0px 0px 5px rgba(0,0,0,0.3);
+        }
+        .btn-carrusel:hover { opacity: 0.5; }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        
+        /* --- GRILLA ASIMÉTRICA DE PRODUCTOS --- */
+        .seccion-titulo { 
+            font-size: 14px; 
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 20px;
+        }
+        .productos { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); 
+            gap: 50px 30px; 
+            max-width: 1300px; 
+            margin: 0 auto 100px auto; 
+            padding: 0 30px;
+        }
+        .producto-card { 
+            background: #ffffff; 
+            text-align: left; 
+            display: flex; 
+            flex-direction: column;
+        }
+        .producto-card img { 
+            width: 100%; 
+            height: 480px; 
+            object-fit: cover;
+            transition: opacity 0.4s ease;
+        }
+        .producto-card:hover img {
+            opacity: 0.85;
+        }
+        .producto-info {
+            padding: 15px 0 10px 0;
+            display: flex;
+            justify-content: space-between; 
+            align-items: baseline;
+        }
+        .producto-info h3 { 
+            margin: 0; 
+            font-size: 12px; 
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #000000;
+        }
+        .producto-info p { 
+            margin: 0; 
+            color: #000000; 
+            font-size: 12px; 
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+        
+        .btn-consultar { 
+            background: #000000; 
+            color: #ffffff; 
+            border: 1px solid #000000; 
+            padding: 12px 0; 
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            cursor: pointer; 
+            text-decoration: none; 
+            display: block; 
+            text-align: center;
+            transition: all 0.3s ease; 
+            margin-top: 5px;
+        }
+        .btn-consultar:hover { 
+            background: #ffffff; 
+            color: #000000; 
+        }
+    </style>
+</head>
+<body>
+
+    <!-- El Header ahora flota arriba del carrusel automáticamente -->
+    <header>
+        <img src="img/LOGO NEGRO.png" alt="MALCRIOLLA" class="logo-showroom">
+        <p class="subtitle">WhatsApp Inquiries Only</p>
+    </header>
+
+    <!-- 🎡 CARRUSEL HERO DE FONDO (FOTOS EDITORIALES) -->
+    <div class="carrusel-contenedor">
+        <div class="carrusel-slides" id="carruselSlides">
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Collection">
+                <div class="slide-texto">Malcriolla Studio</div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200" alt="Editorial">
+                <div class="slide-texto">New Horizons</div>
+            </div>
+            <div class="slide">
+                <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=1200" alt="Pre-Order">
+                <div class="slide-texto">Limited Drop</div>
+            </div>
+        </div>
+        <button class="btn-carrusel prev" onclick="moverCarrusel(-1)">&larr;</button>
+        <button class="btn-carrusel next" onclick="moverCarrusel(1)">&rarr;</button>
+    </div>
+
+    <h2 class="seccion-titulo">All Clothing</h2>
+
+    <!-- Catálogo de Prendas -->
+    <main class="productos" id="catalogo"></main>
+
+    <script>
+        const prendas = [
+            { id: 1, nombre: "Campera Denim Oversize", precio: 45000, img: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=500" },
+            { id: 2, nombre: "Remera Básica Algodón", precio: 12500, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
+            { id: 3, nombre: "Jean Mom Rígido", precio: 32000, img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" },
+            { id: 4, nombre: "Buzo Canguro Frisa", precio: 28000, img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500" }
+        ];
+
+        const miTelefono = "5493411234567"; 
+
+        function cargarCatalogo() {
+            const contenedor = document.getElementById('catalogo');
+            contenedor.innerHTML = prendas.map(p => {
+                const textoMensaje = `¡Hola! Me interesó la prenda: *${p.nombre}* ($${p.precio.toLocaleString('es-AR')}). ¿Está disponible?`;
+                const urlWhatsApp = `https://wa.me/${miTelefono}?text=${encodeURIComponent(textoMensaje)}`;
+
+                return `
+                    <div class="producto-card">
+                        <img src="${p.img}" alt="${p.nombre}">
+                        <div class="producto-info">
+                            <h3>${p.nombre}</h3>
+                            <p>$${p.precio.toLocaleString('es-AR')}</p>
+                        </div>
+                        <a href="${urlWhatsApp}" target="_blank" class="btn-consultar">Inquire Stock</a>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        let slideIndex = 0;
+        const slidesContainer = document.getElementById('carruselSlides');
+        const totalSlides = 3;
+
+        function actualizarCarrusel() {
+            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+        }
+
+        function moverCarrusel(direccion) {
+            slideIndex += direccion;
+            if (slideIndex >= totalSlides) { slideIndex = 0; }
+            if (slideIndex < 0) { slideIndex = totalSlides - 1; }
+            actualizarCarrusel();
+        }
+
+        setInterval(() => { moverCarrusel(1); }, 6000);
+
+        cargarCatalogo();
+    </script>
+</body>
+</html>
