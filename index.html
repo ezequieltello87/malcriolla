@@ -5,330 +5,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MALCRIOLLA | Official Online Store</title>
     <style>
-        /* --- ESTILO VIVIENNE WESTWOOD: FIJO Y COMPACTO --- */
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             background: #ffffff; 
             margin: 0; 
             padding: 0; 
             color: #000000;
-            -webkit-font-smoothing: antialiased;
         }
 
-        /* Cabecera INICIAL: Transparente sobre el carrusel */
+        /* Cabecera */
         header { 
             background: transparent; 
-            padding: 35px 0;
+            padding: 25px 0;
             position: fixed; 
             top: 0;
             left: 0;
             right: 0;
-            width: 100%;
             z-index: 9999; 
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            border-bottom: 1px solid transparent;
+            transition: all 0.4s ease;
         }
 
-        /* Contenedor estructural para el balance óptico */
         .header-estructura {
-            max-width: 95%;
-            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        
-        /* Botón de Menú a la izquierda */
         .menu-btn {
             background: transparent;
             border: none;
-            color: #ffffff; /* Blanco al inicio */
+            color: #ffffff; 
             cursor: pointer;
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 18px;
+            gap: 10px;
+            font-size: 16px;
             text-transform: uppercase;
             letter-spacing: 2px;
-            padding: 0;
-            transition: color 0.3s ease;
-            width: 140px; /* Ancho idéntico al espaciador para no descentrar el logo */
-            flex-shrink: 0;
+            transition: all 0.4s ease;
         }
 
-        .menu-icono { font-size: 18px; }
-        .menu-texto { font-weight: 300; }
-
-        /* Bloque central del logo */
         .logo-bloque {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            flex-grow: 1;
         }
 
-       .header-espaciador {
-            width: 140px; /* 🌟 TIENE que ser el mismo ancho que .menu-btn */
-            flex-shrink: 0;
-        }
-
-        /* El logo dinámico (Grande al inicio) */
         .logo-dinamico {
-            height: 45px;          
+            height: 40px;          
             width: auto;
-            content: url("img/LOGO BLANCO.png"); /* Usa tu versión blanca larga aquí */
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            content: url("img/LOGO BLANCO.png"); 
+            transition: all 0.4s ease;
         }
 
         p.subtitle { 
-            margin: 6px 0 0 0; 
-            color: #ffffff; /* Blanco sobre el carrusel */
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            font-weight: 400;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-
-        /* --- 🌟 ESTADO TRASLÚCIDO AL HACER SCROLL --- */
-        header.shrink {
-            padding: 15px 0; 
-            /* Blanco al 80% de opacidad + desenfoque de fondo de 10px */
-            background: rgba(255, 255, 255, 0.5); 
-            backdrop-filter: none; 
-            -webkit-backdrop-filter: none; /* Soporte para Safari */
-            border-bottom: 1px solid rgba(229, 229, 229, 0.5); 
-        }
-
-        /* El menú pasa a negro tras el carrusel */
-        header.shrink .menu-btn {
-            color: #000000;
-        }
-
-        /* Intercambio al logo M negro recortado */
-        header.shrink .logo-dinamico {
-            height: 28px;                  
-            content: url("img/LOGO NEGRO.png"); 
-        }
-
-        header.shrink p.subtitle {
-            opacity: 0;
-            height: 0;
-            margin: 0;
-            overflow: hidden; 
-        }
-        
-        /* --- EDITORIAL HERO SLIDER --- */
-        .carrusel-contenedor { 
-            width: 100%;
-            position: relative; 
-            margin-top: 0; 
-            margin-bottom: 60px; 
-            overflow: hidden; 
-        }
-        .carrusel-slides { 
-            display: flex; 
-            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .slide { 
-            min-width: 100%; 
-            position: relative; 
-        }
-        .slide img { 
-            width: 100%; 
-            height: 75vh; 
-            object-fit: cover; 
-            display: block; 
-        }
-        .slide-texto { 
-            position: absolute; 
-            bottom: 50px; 
-            left: 50px; 
+            margin: 4px 0 0 0; 
             color: #ffffff; 
-            font-size: 32px; 
-            font-weight: 300;
+            font-size: 9px;
             text-transform: uppercase;
-            letter-spacing: 4px;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
         }
+
+        /* Efecto al hacer scroll */
+        header.shrink {
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 10px 0;
+        }
+        header.shrink .menu-btn { color: #000000; }
+        header.shrink .logo-dinamico { height: 25px; content: url("img/LOGO NEGRO.png"); }
+        header.shrink p.subtitle { opacity: 0; height: 0; }
+
+        /* Carrusel */
+        .carrusel-contenedor { width: 100%; position: relative; overflow: hidden; }
+        .carrusel-slides { display: flex; transition: transform 0.8s ease; }
+        .slide { min-width: 100%; position: relative; }
+        .slide img { width: 100%; height: 80vh; object-fit: cover; }
+        .slide-texto { position: absolute; bottom: 40px; left: 40px; color: #ffffff; font-size: 24px; letter-spacing: 3px; }
         
-        /* Flechas */
-        .btn-carrusel { 
-            position: absolute; 
-            top: 50%; 
-            transform: translateY(-50%); 
-            background: transparent; 
-            color: #ffffff; /* Flechas blancas quedan mejor sobre fotos */
-            border: none; 
-            font-size: 35px; 
-            font-weight: 100;
-            cursor: pointer; 
-            transition: opacity 0.3s;
-            padding: 0 20px;
-            z-index: 10;
-        }
-        .btn-carrusel:hover { opacity: 0.4; }
+        .btn-carrusel { position: absolute; top: 50%; background: transparent; color: #ffffff; border: none; font-size: 30px; cursor: pointer; }
         .prev { left: 10px; }
         .next { right: 10px; }
         
-/* Estilos para Quiénes Somos */
-        .quienes-somos {
-            padding: 100px 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #ffffff;
-        }
-
-        .texto-container {
-            max-width: 600px;
-            text-align: center;
-        }
-
-        .texto-container h2 {
-            font-size: 50px;
-            font-weight: 400;
-            text-transform: uppercase;
-            letter-spacing: 8px;
-            margin-bottom: 40px;
-            color: #000000;
-        }
-
-        .texto-container p {
-            font-size: 14px;
-            line-height: 1.8;
-            color: #444;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
-        }
+        /* Quiénes Somos */
+        .quienes-somos { padding: 80px 20px; text-align: center; background: #ffffff; }
+        .texto-container { max-width: 600px; margin: 0 auto; }
+        .texto-container h2 { font-size: 50px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 30px; }
+        .texto-container p { font-size: 13px; line-height: 1.6; color: #333; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-    <!-- Cabecera simétrica estilo editorial -->
     <header>
         <div class="header-estructura">
-            <!-- Menú Izquierda -->
-            <button class="menu-btn" onclick="console.log('Abrir menú')">
-                <span class="menu-icono">&#9776;</span>
-                
-            </button>
-
-            <!-- Centro: Logo y Subtítulo -->
+            <button class="menu-btn"><span>&#9776;</span> </button>
             <div class="logo-bloque">
-                <img src="img/logo-completo-blanco.png" alt="MALCRIOLLA" class="logo-dinamico">
-                <p class="subtitle">WhatsApp Inquiries Only</p>
+                <img src="img/LOGO BLANCO.png" alt="MALCRIOLLA" class="logo-dinamico">
+                <p class="subtitle">WHATSAPP INQUIRIES ONLY</p>
             </div>
-
-            <!-- Balance Derecho -->
-            <div class="header-espaciador"></div>
+            <div style="width: 100px;"></div> <!-- Contrapeso para el centrado -->
         </div>
     </header>
 
-    <!-- 🎡 CARRUSEL HERO -->
     <div class="carrusel-contenedor">
         <div class="carrusel-slides" id="carruselSlides">
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Collection">
-                <div class="slide-texto">Malcriolla Studio</div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200" alt="Editorial">
-                <div class="slide-texto">New Horizons</div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1479064555552-3ef4979f8908?w=1200" alt="Pre-Order">
-                <div class="slide-texto">Limited Drop</div>
-            </div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="1"><div class="slide-texto">MALCRIOLLA STUDIO</div></div>
+            <div class="slide"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200" alt="2"><div class="slide-texto">NEW HORIZONS</div></div>
         </div>
-        <button class="btn-carrusel prev" onclick="moverCarrusel(-1)">&larr;</button>
-        <button class="btn-carrusel next" onclick="moverCarrusel(1)">&rarr;</button>
+        <button class="btn-carrusel prev" onclick="moverCarrusel(-1)">&#10094;</button>
+        <button class="btn-carrusel next" onclick="moverCarrusel(1)">&#10095;</button>
     </div>
 
-    <!-- 🖋️ SECCIÓN QUIÉNES SOMOS -->
     <section class="quienes-somos">
         <div class="texto-container">
             <h2>𝕸𝖆𝖑𝖈𝖗𝖎𝖔𝖑𝖑𝖆</h2>
-            <p>
-                MALCRIOLLA nace de la búsqueda por redefinir el diseño contemporáneo, 
-                fusionando la estética urbana con una visión disruptiva y artesanal. 
-                Cada pieza es el resultado de un proceso de curaduría minucioso, 
-                pensada para quienes no siguen tendencias, sino que crean su propio camino.
-            </p>
-            <p>
-                Desde nuestro estudio en Argentina, transformamos conceptos en realidades 
-                tangibles, manteniendo siempre un compromiso inquebrantable con la 
-                identidad y la calidad.
-            </p>
+            <p>Malcriolla | Estudio de Diseño Independiente Creamos colecciones de autor con una estética disruptiva y una identidad definida. </p>
+             <p>Nuestras piezas se caracterizan por la intervención artesanal y una producción limitada que garantiza exclusividad en cada diseño. Desde Rosario, proyectamos moda con actitud. </p>
         </div>
     </section>
 
-    <h2 class="seccion-titulo">All Clothing</h2>
-
-    <!-- Catálogo de Prendas -->
-    <main class="productos" id="catalogo"></main>
-
     <script>
-        const prendas = [
-            { id: 1, nombre: "Campera Denim Oversize", precio: 45000, img: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=500" },
-            { id: 2, nombre: "Remera Básica Algodón", precio: 12500, img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?w=500" },
-            { id: 3, nombre: "Jean Mom Rígido", precio: 32000, img: "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?w=500" },
-            { id: 4, nombre: "Buzo Canguro Frisa", precio: 28000, img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=500" }
-        ];
-
-        const miTelefono = "5493411234567"; 
-
-        function cargarCatalogo() {
-            const contenedor = document.getElementById('catalogo');
-            contenedor.innerHTML = prendas.map(p => {
-                const textoMensaje = `¡Hola! Me interesó la prenda: *${p.nombre}* ($${p.precio.toLocaleString('es-AR')}). ¿Está disponible?`;
-                const urlWhatsApp = `https://wa.me/${miTelefono}?text=${encodeURIComponent(textoMensaje)}`;
-
-                return `
-                    <div class="producto-card">
-                        <img src="${p.img}" alt="${p.nombre}">
-                        <div class="producto-info">
-                            <h3>${p.nombre}</h3>
-                            <p>$${p.precio.toLocaleString('es-AR')}</p>
-                        </div>
-                        <a href="${urlWhatsApp}" target="_blank" class="btn-consultar">Inquire Stock</a>
-                    </div>
-                `;
-            }).join('');
-        }
-
         let slideIndex = 0;
-        const slidesContainer = document.getElementById('carruselSlides');
-        const totalSlides = 3;
-
-        function actualizarCarrusel() {
-            slidesContainer.style.transform = `translateX(-${slideIndex * 100}%)`;
+        const slides = document.getElementById('carruselSlides');
+        function moverCarrusel(n) {
+            slideIndex = (slideIndex + n + 2) % 2;
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
         }
-
-        function moverCarrusel(direccion) {
-            slideIndex += direccion;
-            if (slideIndex >= totalSlides) { slideIndex = 0; }
-            if (slideIndex < 0) { slideIndex = totalSlides - 1; }
-            actualizarCarrusel();
-        }
-
-        setInterval(() => { moverCarrusel(1); }, 6000);
-
-        cargarCatalogo();
-
-        // 🌟 Detector inteligente: ejecuta el cambio justo al terminar el carrusel
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            const carrusel = document.querySelector('.carrusel-contenedor');
-            const alturaCarrusel = carrusel.offsetHeight;
-
-            if (window.scrollY >= alturaCarrusel - 40) { // Un pequeño margen de suavizado
-                header.classList.add('shrink');
-            } else {
-                header.classList.remove('shrink');
-            }
+        window.addEventListener('scroll', () => {
+            document.querySelector('header').classList.toggle('shrink', window.scrollY > 50);
         });
     </script>
 </body>
