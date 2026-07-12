@@ -15,74 +15,113 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* Cabecera INICIAL: Ultra transparente y flotando sobre la foto */
+        /* Cabecera INICIAL: Transparente sobre el carrusel */
         header { 
-            text-align: center; 
-            background: transparent; /* Sin fondo al inicio */
+            background: transparent; 
             padding: 35px 0;
             position: fixed; 
             top: 0;
             left: 0;
+            right: 0;
             width: 100%;
             z-index: 9999; 
             transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
             border-bottom: 1px solid transparent;
+        }
+
+        /* Contenedor estructural para el balance óptico */
+        .header-estructura {
+            max-width: 95%;
+            margin: 0 auto;
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
         }
 
-        /* Contenedor máscara para lograr el recorte perfecto de la M */
-        .logo-wrapper {
-            width: 280px; /* Ancho estimado inicial para que quepa todo tu logo entero */
-            height: 45px;
-            overflow: hidden; /* Clave: recorta lo que exceda el contenedor */
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-            display: inline-block;
+        /* Botón de Menú a la izquierda */
+        .menu-btn {
+            background: transparent;
+            border: none;
+            color: #ffffff; /* Blanco al inicio */
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 0;
+            transition: color 0.3s ease;
+            width: 140px; /* Ancho idéntico al espaciador para no descentrar el logo */
+        }
+        .menu-icono { font-size: 18px; }
+        .menu-texto { font-weight: 300; }
+
+        /* Bloque central del logo */
+        .logo-bloque {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
-        .logo-showroom {
-            height: 100%; 
-            width: auto;       
-            display: block;
-            object-fit: contain;
+        /* Espaciador derecho invisible */
+        .header-espaciador {
+            width: 100px; 
+        }
+
+        /* El logo dinámico (Grande al inicio) */
+        .logo-dinamico {
+            height: 45px;          
+            width: auto;
+            content: url("img/LOGO BLANCO.png"); /* Usa tu versión blanca larga aquí */
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         p.subtitle { 
             margin: 6px 0 0 0; 
-            color: #000000; 
+            color: #ffffff; /* Blanco sobre el carrusel */
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 3px;
             font-weight: 400;
             transition: all 0.3s ease;
+            text-align: center;
         }
 
-        /* Estado ACHICADO: Toma fondo blanco sólido al bajar para tapar el catálogo */
+        /* --- 🌟 ESTADO TRASLÚCIDO AL HACER SCROLL --- */
         header.shrink {
-            padding: 12px 0; 
-            background: #ffffff; /* Se vuelve blanco puro al hacer scroll */
-            border-bottom: 1px solid #e5e5e5; 
+            padding: 15px 0; 
+            /* Blanco al 80% de opacidad + desenfoque de fondo de 10px */
+            background: rgba(255, 255, 255, 0.5); 
+            backdrop-filter: none; 
+            -webkit-backdrop-filter: none; /* Soporte para Safari */
+            border-bottom: 1px solid rgba(229, 229, 229, 0.5); 
         }
 
-        /* La máscara se achica drásticamente forzando a mostrar solo la M inicial */
-        header.shrink .logo-wrapper {
-            width: 18px; /* Ajustá este número (ej. 18px, 20px, 25px) si se asoma la 'A' o se corta la 'M' */
-            height: 30px; 
+        /* El menú pasa a negro tras el carrusel */
+        header.shrink .menu-btn {
+            color: #000000;
+        }
+
+        /* Intercambio al logo M negro recortado */
+        header.shrink .logo-dinamico {
+            height: 28px;                  
+            content: url("img/LOGO NEGRO.png"); 
         }
 
         header.shrink p.subtitle {
             opacity: 0;
             height: 0;
             margin: 0;
-            overflow: hidden; /* Hace desaparecer el texto sin saltos bruscos */
+            overflow: hidden; 
         }
         
         /* --- EDITORIAL HERO SLIDER --- */
         .carrusel-contenedor { 
             width: 100%;
             position: relative; 
-            margin-top: 0; /* 💥 Eliminamos el espacio: la foto ahora es el techo real de la web */
+            margin-top: 0; 
             margin-bottom: 60px; 
             overflow: hidden; 
         }
@@ -117,7 +156,7 @@
             top: 50%; 
             transform: translateY(-50%); 
             background: transparent; 
-            color: #000000; 
+            color: #ffffff; /* Flechas blancas quedan mejor sobre fotos */
             border: none; 
             font-size: 35px; 
             font-weight: 100;
@@ -207,16 +246,27 @@
 </head>
 <body>
 
-    <!-- El Header flota arriba del carrusel automáticamente -->
+    <!-- Cabecera simétrica estilo editorial -->
     <header>
-        <!-- Envolvemos el logo en un div contenedor para usarlo como máscara de recorte -->
-        <div class="logo-wrapper">
-            <img src="img/LOGO NEGRO.png" alt="MALCRIOLLA" class="logo-showroom">
+        <div class="header-estructura">
+            <!-- Menú Izquierda -->
+            <button class="menu-btn" onclick="console.log('Abrir menú')">
+                <span class="menu-icono">&#9776;</span>
+                
+            </button>
+
+            <!-- Centro: Logo y Subtítulo -->
+            <div class="logo-bloque">
+                <img src="img/logo-completo-blanco.png" alt="MALCRIOLLA" class="logo-dinamico">
+                <p class="subtitle">WhatsApp Inquiries Only</p>
+            </div>
+
+            <!-- Balance Derecho -->
+            <div class="header-espaciador"></div>
         </div>
-        <p class="subtitle">WhatsApp Inquiries Only</p>
     </header>
 
-    <!-- 🎡 CARRUSEL HERO DE FONDO (FOTOS EDITORIALES) -->
+    <!-- 🎡 CARRUSEL HERO -->
     <div class="carrusel-contenedor">
         <div class="carrusel-slides" id="carruselSlides">
             <div class="slide">
@@ -289,10 +339,13 @@
 
         cargarCatalogo();
 
-        // Detector de Scroll para achicar el logo
+        // 🌟 Detector inteligente: ejecuta el cambio justo al terminar el carrusel
         window.addEventListener('scroll', function() {
             const header = document.querySelector('header');
-            if (window.scrollY > 50) {
+            const carrusel = document.querySelector('.carrusel-contenedor');
+            const alturaCarrusel = carrusel.offsetHeight;
+
+            if (window.scrollY >= alturaCarrusel - 40) { // Un pequeño margen de suavizado
                 header.classList.add('shrink');
             } else {
                 header.classList.remove('shrink');
