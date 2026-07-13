@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MALCRIOLLA | Official Online Store</title>
     <style>
+
+        @font-face {
+            font-family: 'Metrim';
+            src: url('fonts/MetrimLetter-Regular.ttf') format('truetype');
+        }
         body { 
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
             background: #ffffff; 
@@ -96,8 +101,15 @@
         /* Quiénes Somos */
         .quienes-somos { padding: 80px 20px; text-align: center; background: #ffffff; }
         .texto-container { max-width: 600px; margin: 0 auto; }
-        .texto-container h2 { font-size: 50px; text-transform: uppercase; letter-spacing: 6px; margin-bottom: 30px; }
-        .texto-container p { font-size: 13px; line-height: 1.6; color: #333; margin-bottom: 20px; }
+        .texto-container h2 {
+            font-family: 'Metrim', sans-serif; /* 🌟 Aquí aplicamos la fuente */
+            font-size: 24px;                  /* Quizás necesites aumentar el tamaño al ser una fuente decorativa */
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 4px;              /* Ajusta el espaciado si la fuente se ve muy pegada */
+            margin-bottom: 30px;
+        }
+        .texto-container p { font-size: 18px; line-height: 1.6; color: #333; margin-bottom: 20px; }
     </style>
 </head>
 <body>
@@ -124,7 +136,7 @@
 
     <section class="quienes-somos">
         <div class="texto-container">
-            <h2>𝕸𝖆𝖑𝖈𝖗𝖎𝖔𝖑𝖑𝖆</h2>
+            <h2>Malcriolla</h2>
             <p>Malcriolla | Estudio de Diseño Independiente Creamos colecciones de autor con una estética disruptiva y una identidad definida. </p>
              <p>Nuestras piezas se caracterizan por la intervención artesanal y una producción limitada que garantiza exclusividad en cada diseño. Desde Rosario, proyectamos moda con actitud. </p>
         </div>
