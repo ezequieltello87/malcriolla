@@ -140,7 +140,7 @@
         }
 
         .texto-bloque p {
-            font-size: 14px;
+            font-size: 18px;
             line-height: 1.8;
             color: #444;
             margin: 0;
@@ -167,6 +167,41 @@
     .btn-ver-todo:hover {
         background-color: #444444;
     }
+
+
+    .footer {
+            background: #ffffff;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 1px solid #eeeeee;
+        }
+
+        .footer-contenido p {
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            font-size: 11px;
+            color: #000;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #666;
+        }
 
     </style>
 </head>
@@ -221,7 +256,7 @@
         </div>
 
         <div class="boton-contenedor">
-            <a href="tienda.html" class="btn-ver-todo">VER TODO</a>
+            <a href="galeria.html" class="btn-ver-todo">VER TODO</a>
         </div>
 
     </section>
@@ -264,5 +299,18 @@
             document.querySelector('header').classList.toggle('shrink', window.scrollY > 50);
         });
     </script>
+
+
+    <!-- 📄 PIE DE PÁGINA -->
+    <footer class="footer">
+        <div class="footer-contenido">
+            <p>&copy; 2026 MALCRIOLLA. TODOS LOS DERECHOS RESERVADOS.</p>
+            <div class="footer-links">
+                <a href="#">INSTAGRAM</a>
+                <a href="#">WHATSAPP</a>
+                <a href="#">TÉRMINOS</a>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
