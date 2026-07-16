@@ -59,6 +59,40 @@
             letter-spacing: 2px; 
             text-transform: uppercase;
         }
+
+        .contenedor-carrusel-productos {
+            width: 100%;
+            overflow: hidden; /* Oculta lo que sale del borde */
+            padding: 40px 0;
+        }
+
+        /* Asegura que el track no tenga saltos */
+        .carrusel-track {
+            display: flex;
+            gap: 30px;
+            animation: scroll 20s linear infinite;
+            /* Esto ayuda a que el movimiento sea más fluido en navegadores modernos */
+            will-change: transform; 
+        }
+
+        /* Pausa al pasar el mouse */
+        .carrusel-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll {
+            /* Mueve todo el ancho del contenido interno */
+            from { transform: translateX(0); }
+            to { transform: translateX(-1400px); } /* Ajusta este valor al ancho real de tus imágenes sumadas */
+        }
+
+        .producto-card img {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            display: block; /* Importante para que el navegador las tome en cuenta */
+        }
+
         /* Footer */
         .footer { background: #ffffff; padding: 60px 20px; text-align: center; border-top: 1px solid #eeeeee; }
         .footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
@@ -122,6 +156,64 @@
         <a href="galeria.html" class="btn-colecciones">COLECCIONES</a>
     </div>
 
+    <div class="contenedor-carrusel-productos">
+    <div class="carrusel-track" id="track">
+        <!-- Tus tarjetas de productos -->
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        
+        <!-- Duplica los elementos si quieres que el efecto sea infinito -->
+    </div>
+</div>
+
     <footer class="footer">
         <div class="footer-contenido">
             <p style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999;">&copy; 2026 MALCRIOLLA. TODOS LOS DERECHOS RESERVADOS.</p>
@@ -154,6 +246,10 @@
     window.addEventListener('scroll', () => {
         document.querySelector('header').classList.toggle('shrink', window.scrollY > 50);
     });
+
+    // Duplicar el contenido para el efecto infinito real
+    const track = document.getElementById('track');
+    track.innerHTML += track.innerHTML;
 </script>
 </body>
 </html>
