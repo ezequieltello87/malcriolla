@@ -40,10 +40,32 @@
         .grid-bloque { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1400px; margin: 100px auto; padding: 0 40px; }
         .bloque-img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
         .bloque-info h3 { font-family: 'Metrim', sans-serif; font-size: 32px; margin-bottom: 25px; }
-        .btn-ver-todo { display: inline-block; padding: 18px 50px; background-color: #000; color: #fff; text-decoration: none; font-size: 14px; letter-spacing: 3px; }
+        .btn-ver-todo { align-self: flex-start; /* Botón alineado con el texto */
+            padding: 10px 25px;
+            border: 1px solid #000;
+            color: #000;
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase; }
         .contenedor-boton-centro { text-align: center; padding: 40px 0; background: #ffffff; }
-        .btn-colecciones { display: inline-block; padding: 15px 40px; background: #000; color: #fff; text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
+        .btn-colecciones { align-self: flex-start; /* Botón alineado con el texto */
+            padding: 10px 25px;
+            border: 1px solid #000;
+            color: #000;
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase; }
 
+        .btn-ver-todo:hover {
+            background: #000;
+            color: #fff;
+        }
+        .btn-colecciones:hover {
+            background: #000;
+            color: #fff;
+        }
         /* Carrusel Productos */
         .contenedor-carrusel-productos { position: relative; width: 100%;max-width: 100vw; overflow: hidden; padding: 40px 0; }
         .carrusel-track { display: flex; gap: 30px;width: max-content; animation: scroll 20s linear infinite; will-change: transform; }
@@ -82,6 +104,26 @@
                 bottom: 20px;
                 right: 20px;
             }
+        }
+
+        .carrusel-track {
+            display: flex;
+            gap: 20px;          /* Espacio entre tus fotos */
+            overflow-x: auto;   /* Habilita el scroll manual */
+            scroll-snap-type: x mandatory; /* Hace que las fotos se "ajusten" al soltar */
+            scrollbar-width: none; /* Oculta la barra en Firefox */
+            padding: 20px 0;    /* Espacio para que no corte el efecto de las imágenes */
+        }
+
+        /* Oculta la barra de scroll en Chrome, Safari y Edge */
+        .carrusel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Asegura que cada foto se ajuste al scroll */
+        .carrusel-item {
+            scroll-snap-align: start; 
+            flex: 0 0 auto; /* Evita que las fotos se deformen */
         }
 
         /* Footer */
@@ -205,7 +247,7 @@
         document.getElementById('modalZoom').style.display = 'flex';
     }
 
-        
+    
     
 </script>
 
