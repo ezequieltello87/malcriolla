@@ -81,9 +81,9 @@
         }
 
         @keyframes scroll {
-            /* Mueve todo el ancho del contenido interno */
             from { transform: translateX(0); }
-            to { transform: translateX(-1400px); } /* Ajusta este valor al ancho real de tus imágenes sumadas */
+            /* Se ha duplicado el valor anterior para cubrir el contenido repetido */
+            to { transform: translateX(-2800px); } 
         }
 
         .producto-card img {
@@ -92,6 +92,44 @@
             object-fit: cover;
             display: block; /* Importante para que el navegador las tome en cuenta */
         }
+
+        .producto-card a {
+            display: block; /* Mantiene el tamaño de la imagen */
+            text-decoration: none;
+        }
+
+        .producto-card a img {
+            cursor: pointer; /* Cambia el cursor a una manito al pasar sobre la imagen */
+            transition: transform 0.3s ease;
+        }
+
+        /* Opcional: efecto al pasar el mouse por encima */
+        .producto-card a:hover img {
+            transform: scale(1.05);
+        }
+
+        .contenedor-carrusel-productos {
+            position: relative; /* Esto permite que las flechas se posicionen sobre el carrusel */
+            width: 100%;
+            overflow: hidden;
+            padding: 40px 0;
+        }
+
+        /* Corrección de posición para flechas de productos */
+        .contenedor-carrusel-productos .btn-carrusel {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5); /* Color visible */
+            color: white;
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            z-index: 30;
+        }
+
+.contenedor-carrusel-productos .prev { left: 10px; }
+.contenedor-carrusel-productos .next { right: 10px; }
 
         /* Footer */
         .footer { background: #ffffff; padding: 60px 20px; text-align: center; border-top: 1px solid #eeeeee; }
@@ -157,58 +195,118 @@
     </div>
 
     <div class="contenedor-carrusel-productos">
-    <div class="carrusel-track" id="track">
-        <!-- Tus tarjetas de productos -->
+        <button class="btn-carrusel prev" onclick="scrollCarrusel(-1)">&#10094;</button>
+        <button class="btn-carrusel next" onclick="scrollCarrusel(1)">&#10095;</button>
+        <div class="carrusel-track" id="track">
+        <!-- BLOQUE 1: Tus tarjetas de productos originales -->
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <a href="img/buzos/123 (2).png" target="_blank">
+                <img src="img/buzos/123 (2).png" alt="Producto">
+            </a>
+                
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            
+            <img src="img/buzos/12345.png" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <img src="img/buzos/123456 (1).png" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <img src="img/buzos/123456 (2).png" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <img src="img/buzos/123456 (3).png" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <img src="img/buzos/INDIO 2.jpg" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <img src="img/buzos/pity 1.jpg" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <img src="img/buzos/ARG.jpg" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <img src="img/buzos/INDIO.jpg" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
         <div class="producto-card">
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Producto">
+            <img src="img/buzos/MORIA.jpg" alt="Producto">
             <h3>NOMBRE</h3>
             <p>$0.00</p>
         </div>
+
+        <!-- BLOQUE 2: Copia exacta del primer bloque para lograr la continuidad -->
+        <div class="producto-card">
+            <img src="img/buzos/123 (2).png" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/12345.png" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/123456 (1).png" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/123456 (2).png" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/123456 (3).png" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/INDIO 2.jpg" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/pity 1.jpg" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/ARG.jpg" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/INDIO.jpg" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+        <div class="producto-card">
+            <img src="img/buzos/MORIA.jpg" alt="Producto">
+            <h3>NOMBRE</h3>
+            <p>$0.00</p>
+        </div>
+    </div>
+</div>
         
         <!-- Duplica los elementos si quieres que el efecto sea infinito -->
     </div>
@@ -250,6 +348,17 @@
     // Duplicar el contenido para el efecto infinito real
     const track = document.getElementById('track');
     track.innerHTML += track.innerHTML;
+
+    // Función para navegación manual en el carrusel de productos
+    function scrollCarrusel(direction) {
+        const track = document.getElementById('track');
+        const cardWidth = 280; // 250px (ancho tarjeta) + 30px (gap)
+    
+        track.scrollBy({
+            left: direction * cardWidth,
+            behavior: 'smooth'
+        });
+    }
 </script>
 </body>
 </html>
