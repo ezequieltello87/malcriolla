@@ -18,10 +18,8 @@
         header.shrink { background: rgba(255, 255, 255, 0.95); padding: 10px 0; border-bottom: 1px solid #eee; }
         header.shrink .menu-btn, header.shrink .ig-link { color: #000000; }
         header.shrink .logo-dinamico { height: 25px; content: url("img/LOGO NEGRO.png"); }
-        header.shrink .menu-btn, header.shrink .ig-link { 
-            color: #000000; 
-        }
-/* El svg usará el color del texto definido en .ig-link gracias al fill="currentColor" */
+        header.shrink .menu-btn, header.shrink .ig-link { color: #000000; }
+
         /* Carrusel */
         .carrusel-contenedor { width: 100%; position: relative; overflow: hidden; }
         .carrusel-slides { display: flex; transition: transform 0.8s ease; }
@@ -30,106 +28,29 @@
         .btn-carrusel { position: absolute; top: 50%; background: transparent; color: #ffffff; border: none; font-size: 30px; cursor: pointer; z-index: 10; }
         .prev { left: 10px; } .next { right: 10px; }
 
-        
-        /* Quiénes somos */
+        /* Contenido */
         .quienes-somos { padding: 100px 20px; text-align: center; background: #ffffff; }
         .texto-container { max-width: 700px; margin: 0 auto; }
         .texto-container h2 { font-family: 'Metrim', sans-serif; font-size: 32px; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 30px; }
         .texto-container p { font-size: 18px; line-height: 1.7; color: #333; margin-bottom: 20px; }
-        /* Contenido */
         .seccion-proceso { max-width: 800px; margin: 0 auto 80px auto; padding: 20px; text-align: center; }
         .seccion-proceso img { width: 100%; height: 400px; object-fit: cover; margin-bottom: 20px; border-radius: 4px; }
         .grid-bloque { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1400px; margin: 100px auto; padding: 0 40px; }
         .bloque-img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
         .bloque-info h3 { font-family: 'Metrim', sans-serif; font-size: 32px; margin-bottom: 25px; }
         .btn-ver-todo { display: inline-block; padding: 18px 50px; background-color: #000; color: #fff; text-decoration: none; font-size: 14px; letter-spacing: 3px; }
+        .contenedor-boton-centro { text-align: center; padding: 40px 0; background: #ffffff; }
+        .btn-colecciones { display: inline-block; padding: 15px 40px; background: #000; color: #fff; text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; }
 
-        .contenedor-boton-centro { 
-            text-align: center; 
-            padding: 40px 0; 
-            background: #ffffff; 
-        }
-        .btn-colecciones { 
-            display: inline-block; 
-            padding: 15px 40px; 
-            background: #000; 
-            color: #fff; 
-            text-decoration: none; 
-            font-size: 12px; 
-            letter-spacing: 2px; 
-            text-transform: uppercase;
-        }
-
-        .contenedor-carrusel-productos {
-            width: 100%;
-            overflow: hidden; /* Oculta lo que sale del borde */
-            padding: 40px 0;
-        }
-
-        /* Asegura que el track no tenga saltos */
-        .carrusel-track {
-            display: flex;
-            gap: 30px;
-            animation: scroll 20s linear infinite;
-            /* Esto ayuda a que el movimiento sea más fluido en navegadores modernos */
-            will-change: transform; 
-        }
-
-        /* Pausa al pasar el mouse */
-        .carrusel-track:hover {
-            animation-play-state: paused;
-        }
-
-        @keyframes scroll {
-            from { transform: translateX(0); }
-            /* Se ha duplicado el valor anterior para cubrir el contenido repetido */
-            to { transform: translateX(-2800px); } 
-        }
-
-        .producto-card img {
-            width: 250px;
-            height: 300px;
-            object-fit: cover;
-            display: block; /* Importante para que el navegador las tome en cuenta */
-        }
-
-        .producto-card a {
-            display: block; /* Mantiene el tamaño de la imagen */
-            text-decoration: none;
-        }
-
-        .producto-card a img {
-            cursor: pointer; /* Cambia el cursor a una manito al pasar sobre la imagen */
-            transition: transform 0.3s ease;
-        }
-
-        /* Opcional: efecto al pasar el mouse por encima */
-        .producto-card a:hover img {
-            transform: scale(1.05);
-        }
-
-        .contenedor-carrusel-productos {
-            position: relative; /* Esto permite que las flechas se posicionen sobre el carrusel */
-            width: 100%;
-            overflow: hidden;
-            padding: 40px 0;
-        }
-
-        /* Corrección de posición para flechas de productos */
-        .contenedor-carrusel-productos .btn-carrusel {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0, 0, 0, 0.5); /* Color visible */
-            color: white;
-            border: none;
-            padding: 15px;
-            cursor: pointer;
-            z-index: 30;
-        }
-
-.contenedor-carrusel-productos .prev { left: 10px; }
-.contenedor-carrusel-productos .next { right: 10px; }
+        /* Carrusel Productos */
+        .contenedor-carrusel-productos { position: relative; width: 100%;max-width: 100vw; overflow: hidden; padding: 40px 0; }
+        .carrusel-track { display: flex; gap: 30px;width: max-content; animation: scroll 20s linear infinite; will-change: transform; }
+        .carrusel-track:hover { animation-play-state: paused; }
+        @keyframes scroll { from { transform: translateX(0); } to { transform: translateX(-1400px); } }
+        .producto-card img { width: 250px; height: 300px; object-fit: cover; display: block; cursor: pointer; transition: transform 0.3s ease; }
+        .producto-card a { display: block; text-decoration: none; }
+        .producto-card a:hover img { transform: scale(1.05); }
+        
 
         /* Footer */
         .footer { background: #ffffff; padding: 60px 20px; text-align: center; border-top: 1px solid #eeeeee; }
@@ -142,19 +63,20 @@
 <body>
 
     <header>
-    <div class="header-estructura">
-        <button class="menu-btn"><span>&#9776;</span></button>
-        <div class="logo-bloque">
-            <img src="img/LOGO BLANCO.png" alt="MALCRIOLLA" class="logo-dinamico">
+        <div class="header-estructura">
+            <button class="menu-btn"><span>&#9776;</span></button>
+            <div class="logo-bloque">
+                <a href="index.html">
+        <img src="img/LOGO BLANCO.png" alt="MALCRIOLLA" class="logo-dinamico">
+    </a>
+            </div>
+            <a href="https://instagram.com/malcriolla" target="_blank" class="ig-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.25.057 2.1.24 2.846.53.77.3 1.32.657 1.896 1.233.575.575.933 1.126 1.233 1.896.29.745.473 1.595.53 2.846.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.057 1.25-.24 2.1-.53 2.846-.3.77-.657 1.32-1.233 1.896-.575.575-1.126.933-1.896 1.233-.745.29-1.595.473-2.846.53-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.25-.057-2.1-.24-2.846-.53-.77-.3-1.32-.657-1.896-1.233-.575-.575-.933-1.126-1.233-1.896-.29-.745-.473-1.595-.53-2.846-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.057-1.25.24-2.1.53-2.846.3-.77.657-1.32 1.233-1.896.575-.575 1.126-.933 1.896-1.233.745-.29 1.595-.473 2.846-.53 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.058-2.148.26-2.91.556-.788.305-1.455.714-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.762.296-1.633.498-2.91.556-1.28.058-1.688.072-4.947.072s3.667-.014 4.947-.072c1.277-.058 2.148-.26 2.91-.556.788-.305 1.455-.714 2.122-1.382.668-.667 1.077-1.334 1.382-2.122.296-.762.498-1.633.556-2.91.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.277-.26-2.148-.556-2.91-.305-.788-.714-1.455-1.382-2.122-.667-.668-1.334-1.077-2.122-1.382-.762-.296-1.633-.498-2.91-.556-1.28-.058-1.688-.072-4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/>
+                </svg>
+            </a>
         </div>
-        <a href="https://instagram.com/malcriolla" target="_blank" class="ig-link">
-            <!-- Icono IG para la cabecera -->
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.25.057 2.1.24 2.846.53.77.3 1.32.657 1.896 1.233.575.575.933 1.126 1.233 1.896.29.745.473 1.595.53 2.846.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.057 1.25-.24 2.1-.53 2.846-.3.77-.657 1.32-1.233 1.896-.575.575-1.126.933-1.896 1.233-.745.29-1.595.473-2.846.53-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.25-.057-2.1-.24-2.846-.53-.77-.3-1.32-.657-1.896-1.233-.575-.575-.933-1.126-1.233-1.896-.29-.745-.473-1.595-.53-2.846-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.057-1.25.24-2.1.53-2.846.3-.77.657-1.32 1.233-1.896.575-.575 1.126-.933 1.896-1.233.745-.29 1.595-.473 2.846-.53 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.058-2.148.26-2.91.556-.788.305-1.455.714-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.762.296-1.633.498-2.91.556-1.28.058-1.688.072-4.947.072s3.667-.014 4.947-.072c1.277-.058 2.148-.26 2.91-.556.788-.305 1.455-.714 2.122-1.382.668-.667 1.077-1.334 1.382-2.122.296-.762.498-1.633.556-2.91.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.277-.26-2.148-.556-2.91-.305-.788-.714-1.455-1.382-2.122-.667-.668-1.334-1.077-2.122-1.382-.762-.296-1.633-.498-2.91-.556-1.28-.058-1.688-.072-4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/>
-            </svg>
-        </a>
-    </div>
-</header>
+    </header>
 
     <div class="carrusel-contenedor">
         <div class="carrusel-slides" id="carruselSlides">
@@ -165,7 +87,6 @@
         <button class="btn-carrusel next" onclick="moverCarrusel(1)">&#10095;</button>
     </div>
 
-    <!-- Sección Quiénes Somos -->
     <section class="quienes-somos">
         <div class="texto-container">
             <h2>Malcriolla</h2>
@@ -189,128 +110,22 @@
         </div>
     </section>
 
-    <!-- Botón Colecciones Centrado -->
     <div class="contenedor-boton-centro">
-        <a href="galeria.html" class="btn-colecciones">COLECCIONES</a>
+        <a href="colecciones.html" class="btn-colecciones">VER TODAS LAS COLECCIONES</a>
     </div>
 
     <div class="contenedor-carrusel-productos">
-        <button class="btn-carrusel prev" onclick="scrollCarrusel(-1)">&#10094;</button>
-        <button class="btn-carrusel next" onclick="scrollCarrusel(1)">&#10095;</button>
-        <div class="carrusel-track" id="track">
-        <!-- BLOQUE 1: Tus tarjetas de productos originales -->
-        <div class="producto-card">
-            <a href="img/buzos/123 (2).png" target="_blank">
-                <img src="img/buzos/123 (2).png" alt="Producto">
-            </a>
-                
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            
-            <img src="img/buzos/12345.png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/123456 (1).png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/123456 (2).png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/123456 (3).png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/INDIO 2.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/pity 1.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/ARG.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/INDIO.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/MORIA.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-
-        <!-- BLOQUE 2: Copia exacta del primer bloque para lograr la continuidad -->
-        <div class="producto-card">
-            <img src="img/buzos/123 (2).png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/12345.png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/123456 (1).png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/123456 (2).png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/123456 (3).png" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/INDIO 2.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/pity 1.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/ARG.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/INDIO.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-        <div class="producto-card">
-            <img src="img/buzos/MORIA.jpg" alt="Producto">
-            <h3>NOMBRE</h3>
-            <p>$0.00</p>
-        </div>
-    </div>
-</div>
         
-        <!-- Duplica los elementos si quieres que el efecto sea infinito -->
+        <div class="carrusel-track" id="track">
+            
+            <div class="producto-card"><img src="img/buzos/12345.png" alt="Producto"><h3>NOMBRE</h3><p>$0.00</p></div>
+            <div class="producto-card"><img src="img/buzos/123456 (2).png" alt="Producto"><h3>NOMBRE</h3><p>$0.00</p></div>
+            <div class="producto-card"><img src="img/buzos/123456 (3).png" alt="Producto"><h3>NOMBRE</h3><p>$0.00</p></div>
+            <div class="producto-card"><img src="img/buzos/pity 1.jpg" alt="Producto"><h3>NOMBRE</h3><p>$0.00</p></div>
+            <div class="producto-card"><img src="img/buzos/INDIO.jpg" alt="Producto"><h3>NOMBRE</h3><p>$0.00</p></div>
+            
+        </div>
     </div>
-</div>
 
     <footer class="footer">
         <div class="footer-contenido">
@@ -323,42 +138,44 @@
         </div>
     </footer>
 
+
+    
     <script>
-    // Configuración del Carrusel
+
+    // Duplicar el contenido para el efecto infinito
+    window.addEventListener('DOMContentLoaded', () => {
+        const track = document.getElementById('track');
+        track.innerHTML += track.innerHTML;
+    });
+    // --- Carrusel Principal ---
     let slideIndex = 0;
     const slides = document.getElementById('carruselSlides');
     const totalSlides = document.querySelectorAll('.slide').length;
-
-    // Función para mover el carrusel
     function moverCarrusel(n) {
         slideIndex = (slideIndex + n + totalSlides) % totalSlides;
         slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
+    setInterval(() => moverCarrusel(1), 4000);
 
-    // Automatización: Cambia de imagen cada 4 segundos
-    setInterval(() => {
-        moverCarrusel(1);
-    }, 4000);
+    // --- Header Scroll ---
+    window.addEventListener('scroll', () => document.querySelector('header').classList.toggle('shrink', window.scrollY > 50));
 
-    // Ajuste de header al hacer scroll (Unificado)
-    window.addEventListener('scroll', () => {
-        document.querySelector('header').classList.toggle('shrink', window.scrollY > 50);
-    });
-
-    // Duplicar el contenido para el efecto infinito real
+    // --- Carrusel Productos (Navegación Manual) ---
     const track = document.getElementById('track');
-    track.innerHTML += track.innerHTML;
-
-    // Función para navegación manual en el carrusel de productos
     function scrollCarrusel(direction) {
-        const track = document.getElementById('track');
-        const cardWidth = 280; // 250px (ancho tarjeta) + 30px (gap)
-    
-        track.scrollBy({
-            left: direction * cardWidth,
-            behavior: 'smooth'
-        });
+        const cardWidth = 280; 
+        track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
     }
+
+    // --- Modal Zoom ---
+    function abrirModal(src) {
+        document.getElementById('imgZoom').src = src;
+        document.getElementById('modalZoom').style.display = 'flex';
+    }
+
+        
+    
 </script>
 </body>
 </html>
+
