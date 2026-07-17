@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
+    <link rel="icon" type="image/png" href="img/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GALERÍA | MALCRIOLLA</title>
@@ -14,9 +16,49 @@
 
         body { margin: 0; padding: 0; background: #ffffff; font-family: 'Helvetica Neue', sans-serif; color: #000; }
 
-        /* Header Replicado */
-        header { padding: 25px 0; background: #fff; text-align: center; border-bottom: 1px solid #eee; }
-        h1 { font-family: 'Metrim', sans-serif; font-size: 32px; text-transform: uppercase; letter-spacing: 4px; margin: 20px 0; }
+        /* Header Base (transparente, estado inicial) */
+        header { 
+            background: transparent; 
+            padding: 25px 0; 
+            position: fixed; 
+            top: 0; 
+            width: 100%; 
+            z-index: 9999; 
+            transition: all 0.4s ease; 
+        }
+
+        .header-estructura { 
+            display: grid; 
+            grid-template-columns: 1fr auto 1fr; 
+            align-items: center; 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 0 20px; 
+        }
+
+
+        /* Elementos del Header */
+        .menu-btn { background: transparent; border: none; color: #ffffff; cursor: pointer; text-transform: uppercase; justify-self: start; }
+        .logo-bloque { display: flex; flex-direction: column; align-items: center; justify-self: center; }
+        .logo-dinamico { height: 40px; width: auto; content: url("img/LOGO BLANCO.png"); transition: all 0.4s ease; }
+        .ig-link { color: #ffffff; justify-self: end; text-decoration: none; }
+
+        /* Header Shrink (el que usas para colecciones) */
+        header.shrink { 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 10px 0; 
+            border-bottom: 1px solid #eee; 
+        }
+
+        header.shrink .menu-btn, 
+        header.shrink .ig-link { 
+            color: #000000; 
+        }
+
+        header.shrink .logo-dinamico { 
+            height: 25px; 
+            content: url("img/LOGO NEGRO.png"); 
+        }
         
         .nav-galeria { padding: 20px 40px; }
         .btn-volver { text-decoration: none; color: #000; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
@@ -48,14 +90,26 @@
     </style>
 </head>
 <body>
+    
+    
 
-    <nav class="nav-galeria">
-        <a href="index.html" class="btn-volver">&#8592; VOLVER AL INICIO</a>
-    </nav>
-
-    <header>
-        <h1>Colección Completa</h1>
-    </header>
+        
+        <header class="shrink no-transition">
+            <div class="header-estructura">
+                <button class="menu-btn"><span>&#9776;</span></button>
+                <div class="logo-bloque">
+                    <a href="index.html">
+            <img src="img/LOGO BLANCO.png" alt="MALCRIOLLA" class="logo-dinamico">
+        </a>
+                </div>
+                <a href="https://instagram.com/malcriolla" target="_blank" class="ig-link">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.25.057 2.1.24 2.846.53.77.3 1.32.657 1.896 1.233.575.575.933 1.126 1.233 1.896.29.745.473 1.595.53 2.846.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.057 1.25-.24 2.1-.53 2.846-.3.77-.657 1.32-1.233 1.896-.575.575-1.126.933-1.896 1.233-.745.29-1.595.473-2.846.53-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.25-.057-2.1-.24-2.846-.53-.77-.3-1.32-.657-1.896-1.233-.575-.575-.933-1.126-1.233-1.896-.29-.745-.473-1.595-.53-2.846-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c.057-1.25.24-2.1.53-2.846.3-.77.657-1.32 1.233-1.896.575-.575 1.126-.933 1.896-1.233.745-.29 1.595-.473 2.846-.53 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.058-2.148.26-2.91.556-.788.305-1.455.714-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.762.296-1.633.498-2.91.556-1.28.058-1.688.072-4.947.072s3.667-.014 4.947-.072c1.277-.058 2.148-.26 2.91-.556.788-.305 1.455-.714 2.122-1.382.668-.667 1.077-1.334 1.382-2.122.296-.762.498-1.633.556-2.91.058-1.28.072-1.688.072-4.947s-.014-3.667-.072-4.947c-.058-1.277-.26-2.148-.556-2.91-.305-.788-.714-1.455-1.382-2.122-.667-.668-1.334-1.077-2.122-1.382-.762-.296-1.633-.498-2.91-.556-1.28-.058-1.688-.072-4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/>
+                    </svg>
+                </a>
+            </div>
+        </header>
+    
 
     <div class="galeria-grid" id="galeria">
         <a href="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200" class="luminous-item"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800" alt="Foto 1"></a>
@@ -64,13 +118,17 @@
         <a href="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=1200" class="luminous-item"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800" alt="Foto 4"></a>
     </div>
 
+    <nav class="nav-galeria">
+        <a href="index.html" class="btn-volver">&#8592; VOLVER AL INICIO</a>
+    </nav>
+
     <footer class="footer">
         <div class="footer-contenido">
             <p style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999;">&copy; 2026 MALCRIOLLA. TODOS LOS DERECHOS RESERVADOS.</p>
             <div class="footer-links">
-                <a href="#">INSTAGRAM</a>
-                <a href="#">WHATSAPP</a>
-                <a href="#">TÉRMINOS</a>
+                <a href="https://instagram.com/malcriolla" target="_blank" class="ig-link">INSTAGRAM</a>
+                <a href="https://wa.me/549XXXXXXXXXX" target="_blank">WHATSAPP</a>
+                <a href="https://malcriolla.mitiendanube.com/" target="_blank" class="ig-link"">TIENDA</a>
             </div>
         </div>
     </footer>
