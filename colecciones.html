@@ -1,6 +1,7 @@
 
 
 
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -56,7 +57,20 @@
         }
 
         .nav-galeria { padding: 20px 40px; }
-        .btn-volver { text-decoration: none; color: #000; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        .btn-volver { align-self: flex-start; /* Botón alineado con el texto */
+            padding: 10px 25px;
+            border: 1px solid #fff;
+            color: #fff;
+            background: #000;
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase; }
+
+        .btn-volver:hover {
+            background: #fff;
+            color: #000;
+        }
 
 
         .colecciones-grid {
@@ -185,6 +199,13 @@
         <h3>EDICIÓN LIMITADA</h3>
         <a href="galeria_limitada.html" class="btn-ver-coleccion">VER COLECCIÓN</a>
     </div>
+    <div class="coleccion-card">
+        <!-- Cambia la extensión .heic por .jpg y asegúrate de convertir el archivo -->
+        <img src="img/IMG_2120.jpg" alt="Nombre Colección">
+        <h3>EDICIÓN LIMITADA</h3>
+        <a href="galeria_limitada.html" class="btn-ver-coleccion">VER COLECCIÓN</a>
+    </div>
+    
 </section>
 
     <nav class="nav-galeria">
@@ -206,6 +227,9 @@
 </a>
 </body>
 </html>
+
+
+
 
 
 
