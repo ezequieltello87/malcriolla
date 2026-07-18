@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <link rel="icon" type="image/png" href="img/favicon.png">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,13 +23,10 @@
         header.shrink .logo-dinamico { height: 25px; content: url("img/LOGO NEGRO.png"); }
         header.shrink .menu-btn, header.shrink .ig-link { color: #000000; }
 
-        /* Carrusel */
-        .carrusel-contenedor { width: 100%; position: relative; overflow: hidden; }
-        .carrusel-slides { display: flex; transition: transform 0.8s ease; }
-        .slide { min-width: 100%; position: relative; }
-        .slide img { width: 100%; height: 100vh; object-fit: cover; }
-        .btn-carrusel { position: absolute; top: 50%; background: transparent; color: #ffffff; border: none; font-size: 30px; cursor: pointer; z-index: 10; }
-        .prev { left: 10px; } .next { right: 10px; }
+        /* Swiper Profesional */
+        .swiper { width: 100%; height: 100vh; }
+        .swiper-slide img { width: 100%; height: 100vh; object-fit: cover; display: block; }
+        .swiper-button-next, .swiper-button-prev { color: #ffffff !important; }
 
         /* Contenido */
         .quienes-somos { padding: 100px 20px; text-align: center; background: #ffffff; }
@@ -112,14 +110,8 @@
             }
         }
 
-        .carrusel-track {
-            display: flex;
-            gap: 20px;          /* Espacio entre tus fotos */
-            overflow-x: auto;   /* Habilita el scroll manual */
-            scroll-snap-type: x mandatory; /* Hace que las fotos se "ajusten" al soltar */
-            scrollbar-width: none; /* Oculta la barra en Firefox */
-            padding: 20px 0;    /* Espacio para que no corte el efecto de las imágenes */
-        }
+        
+        
 
         /* Oculta la barra de scroll en Chrome, Safari y Edge */
         .carrusel-track::-webkit-scrollbar {
@@ -158,15 +150,15 @@
         </div>
     </header>
 
-    <div class="carrusel-contenedor">
-        <div class="carrusel-slides" id="carruselSlides">
-            <div class="slide"><img src="img/carousel slide/IMG_2120.jpg" alt="Slide 1"></div>
-            <div class="slide"><img src="img/carousel slide/IMG_1923.jpg" alt="Slide 2"></div>
-            <div class="slide"><img src="img/carousel slide/IMG_1944.jpg" alt="Slide 3"></div>
-        </div>
-        <button class="btn-carrusel prev" onclick="moverCarrusel(-1)">&#10094;</button>
-        <button class="btn-carrusel next" onclick="moverCarrusel(1)">&#10095;</button>
+    <div class="swiper mySwiper">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="img/carousel slide/IMG_2120.jpg" alt="Slide 1"></div>
+        <div class="swiper-slide"><img src="img/carousel slide/IMG_1923.jpg" alt="Slide 2"></div>
+        <div class="swiper-slide"><img src="img/carousel slide/IMG_1944.jpg" alt="Slide 3"></div>
     </div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</div>
 
     <section class="quienes-somos">
         <div class="texto-container">
@@ -222,48 +214,52 @@
     </footer>
 
 
-    
+    <!-- Modal de Imagen -->
+<div id="imageModal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); justify-content:center; align-items:center;">
+    <span onclick="document.getElementById('imageModal').style.display='none'" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer;">&times;</span>
+    <img id="modalImg" style="max-width:90%; max-height:80%; border-radius:4px;">
+</div>
     <script>
-
-    // Duplicar el contenido para el efecto infinito
     window.addEventListener('DOMContentLoaded', () => {
         const track = document.getElementById('track');
-        track.innerHTML += track.innerHTML;
+        
+        // 1. Duplicar elementos
+        track.innerHTML += track.innerHTML; 
+
+        // 2. Delegación de eventos (Funciona para todos, incluso los duplicados)
+        track.addEventListener('click', (e) => {
+            if (e.target.tagName === 'IMG') {
+                const modal = document.getElementById('imageModal');
+                const modalImg = document.getElementById('modalImg');
+                modal.style.display = 'flex';
+                modalImg.src = e.target.src;
+            }
+        });
     });
-    // --- Carrusel Principal ---
-    let slideIndex = 0;
-    const slides = document.getElementById('carruselSlides');
-    const totalSlides = document.querySelectorAll('.slide').length;
-    function moverCarrusel(n) {
-        slideIndex = (slideIndex + n + totalSlides) % totalSlides;
-        slides.style.transform = `translateX(-${slideIndex * 100}%)`;
-    }
-    setInterval(() => moverCarrusel(1), 4000);
 
-    // --- Header Scroll ---
-    window.addEventListener('scroll', () => document.querySelector('header').classList.toggle('shrink', window.scrollY > 50));
+    // Inicializar Swiper
+    var swiper = new Swiper(".mySwiper", {
+        loop: true,
+        autoplay: { delay: 6000, disableOnInteraction: false },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        keyboard: { enabled: true },
+    });
 
-    // --- Carrusel Productos (Navegación Manual) ---
-    const track = document.getElementById('track');
-    function scrollCarrusel(direction) {
-        const cardWidth = 280; 
-        track.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
-    }
-
-    // --- Modal Zoom ---
-    function abrirModal(src) {
-        document.getElementById('imgZoom').src = src;
-        document.getElementById('modalZoom').style.display = 'flex';
-    }
-
-    
-    
+    // Header Scroll
+    window.addEventListener('scroll', () => 
+        document.querySelector('header').classList.toggle('shrink', window.scrollY > 50)
+    );
 </script>
 
 <!-- Botón Flotante WhatsApp -->
 <a href="https://wa.me/5493411234567" class="whatsapp-float" target="_blank">
     <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
 </a>
+
+
 </body>
 </html>
 
