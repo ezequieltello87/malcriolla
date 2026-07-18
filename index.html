@@ -26,7 +26,7 @@
         .carrusel-contenedor { width: 100%; position: relative; overflow: hidden; }
         .carrusel-slides { display: flex; transition: transform 0.8s ease; }
         .slide { min-width: 100%; position: relative; }
-        .slide img { width: 100%; height: 80vh; object-fit: cover; }
+        .slide img { width: 100%; height: 100vh; object-fit: cover; }
         .btn-carrusel { position: absolute; top: 50%; background: transparent; color: #ffffff; border: none; font-size: 30px; cursor: pointer; z-index: 10; }
         .prev { left: 10px; } .next { right: 10px; }
 
@@ -39,8 +39,14 @@
         .seccion-proceso img { width: 100%; height: 400px; object-fit: cover; margin-bottom: 20px; border-radius: 4px; }
         .grid-bloque { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1400px; margin: 100px auto; padding: 0 40px; }
         .bloque-img img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 4px; }
-        .bloque-info h3 { font-family: 'Metrim', sans-serif; font-size: 32px; margin-bottom: 25px; }
-        .btn-ver-todo { align-self: flex-start; /* Botón alineado con el texto */
+        .bloque-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centra horizontalmente */
+            text-align: center;  /* Opcional: centra también el texto */
+        }
+        .bloque-info h3 { font-family: 'Metrim', sans-serif; font-size: 32px; margin-bottom: 25px; text-align: center;}
+        .btn-ver-todo { 
             padding: 10px 25px;
             border: 1px solid #000;
             color: #000;
@@ -154,8 +160,9 @@
 
     <div class="carrusel-contenedor">
         <div class="carrusel-slides" id="carruselSlides">
-            <div class="slide"><img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1200" alt="Slide 1"></div>
-            <div class="slide"><img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200" alt="Slide 2"></div>
+            <div class="slide"><img src="img/carousel slide/IMG_2120.jpg" alt="Slide 1"></div>
+            <div class="slide"><img src="img/carousel slide/IMG_1923.jpg" alt="Slide 2"></div>
+            <div class="slide"><img src="img/carousel slide/IMG_1944.jpg" alt="Slide 3"></div>
         </div>
         <button class="btn-carrusel prev" onclick="moverCarrusel(-1)">&#10094;</button>
         <button class="btn-carrusel next" onclick="moverCarrusel(1)">&#10095;</button>
@@ -180,7 +187,9 @@
         <div class="bloque-info">
             <h3>Producción Limitada</h3>
             <p>Creemos en el valor de lo escaso. Nuestras cápsulas son exclusivas.</p>
+            
             <a href="galeria.html" class="btn-ver-todo">VER TODO</a>
+            
         </div>
     </section>
 
