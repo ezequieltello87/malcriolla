@@ -61,8 +61,20 @@
         }
         
         .nav-galeria { padding: 20px 40px; }
-        .btn-volver { text-decoration: none; color: #000; font-size: 11px; letter-spacing: 2px; text-transform: uppercase; }
+        .btn-volver { align-self: flex-start; /* Botón alineado con el texto */
+            padding: 10px 25px;
+            border: 1px solid #fff;
+            color: #fff;
+            background: #000;
+            text-decoration: none;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase; }
 
+        .btn-volver:hover {
+            background: #fff;
+            color: #000;
+        }
         /* Galería mejorada */
         .galeria-grid {
             display: grid;
