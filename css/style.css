@@ -293,3 +293,41 @@ header.shrink .logo-dinamico {
         right: 20px;
     }
 }
+
+/* --- Carrusel de Buzos Deslizable --- */
+.carrusel-buzos {
+    width: 100%;
+    padding: 20px 0 50px 0;
+    overflow: hidden;
+}
+
+.carrusel-buzos .swiper-slide {
+    width: 280px; /* Ancho fijo para cada tarjeta de buzo en el deslizador */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.carrusel-buzos .producto-card img {
+    width: 100%;
+    height: 350px;
+    object-fit: cover;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+/* Opcional: si prefieres desplazamiento táctil nativo sin flechas, 
+   puedes usar CSS puro con Flexbox en lugar de Swiper: */
+.productos-scroll-nativo {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 20px;
+}
+
+.productos-scroll-nativo .producto-card {
+    flex: 0 0 280px;
+    scroll-snap-align: start;
+}
