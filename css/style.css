@@ -3,12 +3,21 @@
     src: url('../fonts/MetrimLetter-Regular.ttf') format('truetype'); 
 }
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body { 
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
     background: #ffffff; 
     margin: 0; 
     padding: 0; 
     color: #000000; 
+    overflow-x: hidden; 
+    position: relative;
+    isolation: isolate; /* Esto crea un nuevo contexto de apilamiento nativo para evitar que el overlay quede atrapado */
 }
 
 /* Header */
@@ -50,7 +59,6 @@ header {
 .logo-dinamico { 
     height: 40px; 
     width: auto; 
-    /* Cambiamos la mala práctica de content: url por un cambio controlado o se mantiene la ruta base */
     content: url("../img/LOGO BLANCO.png"); 
     transition: all 0.4s ease; 
 }
@@ -230,13 +238,13 @@ header.shrink .logo-dinamico {
     bottom: 40px;
     right: 40px;
     z-index: 9999;
-    opacity: 0;             /* Oculto por defecto */
-    visibility: hidden;     /* Invisible para lectores y clics */
+    opacity: 0;             
+    visibility: hidden;     
     transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease;
 }
 
 .whatsapp-float.show {
-    opacity: 1;             /* Se muestra cuando se le añade la clase 'show' */
+    opacity: 1;             
     visibility: visible;
 }
 
@@ -250,15 +258,6 @@ header.shrink .logo-dinamico {
     transform: scale(1.1);
 }
 
-/* Ajuste para móviles */
-@media (max-width: 768px) {
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-    }
-}
 /* Footer */
 .footer { 
     background: #ffffff; 
@@ -302,7 +301,7 @@ header.shrink .logo-dinamico {
 }
 
 .carrusel-buzos .swiper-slide {
-    width: 280px; /* Ancho fijo para cada tarjeta de buzo en el deslizador */
+    width: 280px; 
     height: auto;
     display: flex;
     flex-direction: column;
@@ -317,17 +316,72 @@ header.shrink .logo-dinamico {
     transition: transform 0.3s ease;
 }
 
-/* Opcional: si prefieres desplazamiento táctil nativo sin flechas, 
-   puedes usar CSS puro con Flexbox en lugar de Swiper: */
-.productos-scroll-nativo {
-    display: flex;
-    gap: 20px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    padding-bottom: 20px;
+/* --- Menú Hamburguesa Lateral y Overlay Definitivos --- */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7); 
+    z-index: 99998; 
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-.productos-scroll-nativo .producto-card {
-    flex: 0 0 280px;
-    scroll-snap-align: start;
+.menu-overlay.activo {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-lateral {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100%;
+    background: #ffffff;
+    color: #000000;
+    z-index: 99999; 
+    box-shadow: 4px 0 15px rgba(0,0,0,0.3);
+    transition: left 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px;
+}
+
+.menu-lateral.activo {
+    left: 0;
+}
+
+.menu-cerrar {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 35px;
+    cursor: pointer;
+    color: #000;
+    line-height: 1;
+    margin-bottom: 30px;
+}
+
+.menu-contenido {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.menu-contenido a {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #000000;
+    transition: color 0.3s ease;
+}
+
+.menu-contenido a:hover {
+    color: #666666;
 }
