@@ -67,3 +67,20 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// Inicializar Carrusel de Buzos
+const carruselBuzos = new Swiper(".carrusel-buzos", {
+    slidesPerView: 'auto',
+    spaceBetween: 25,
+    loop: true,
+    grabCursor: true,
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        768: {
+            spaceBetween: 30,
+        }
+    }
+});
