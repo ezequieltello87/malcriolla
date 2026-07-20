@@ -17,7 +17,7 @@ body {
     color: #000000; 
     overflow-x: hidden; 
     position: relative;
-    isolation: isolate; /* Esto crea un nuevo contexto de apilamiento nativo para evitar que el overlay quede atrapado */
+    isolation: isolate; 
 }
 
 /* Header */
@@ -201,7 +201,7 @@ header.shrink .logo-dinamico {
     background: #ffffff; 
 }
 
-/* Carrusel Productos */
+/* Carrusel Productos (General) */
 .carrusel-productos { 
     width: 100%; 
     padding: 40px 0; 
@@ -230,86 +230,32 @@ header.shrink .logo-dinamico {
     transform: scale(1.05); 
 }
 
-/* Botón Flotante WhatsApp */
-.whatsapp-float {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    z-index: 9999;
-    opacity: 0;             
-    visibility: hidden;     
-    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease;
-}
-
-.whatsapp-float.show {
-    opacity: 1;             
-    visibility: visible;
-}
-
-.whatsapp-float img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.whatsapp-float:hover {
-    transform: scale(1.1);
-}
-
-/* Footer */
-.footer { 
-    background: #ffffff; 
-    padding: 60px 20px; 
-    text-align: center; 
-    border-top: 1px solid #eeeeee; 
-}
-
-.footer-links { 
-    display: flex; 
-    justify-content: center; 
-    gap: 20px; 
-    margin-top: 20px; 
-}
-
-.footer-links a { 
-    font-size: 11px; 
-    color: #000; 
-    text-decoration: none; 
-    text-transform: uppercase; 
-}
-
-/* Responsividad para móviles */
-@media (max-width: 768px) { 
-    .grid-bloque { 
-        grid-template-columns: 1fr; 
-    } 
-    .whatsapp-float {
-        width: 50px;
-        height: 50px;
-        bottom: 20px;
-        right: 20px;
-    }
-}
-
 /* --- Carrusel de Buzos Deslizable --- */
+.seccion-productos {
+    padding-bottom: 20px;
+}
+
 .carrusel-buzos {
     width: 100%;
-    padding: 20px 0 50px 0;
+    padding: 10px 0;
     overflow: hidden;
+}
+
+.carrusel-buzos.swiper,
+.carrusel-buzos .swiper-wrapper {
+    height: auto !important;
 }
 
 .carrusel-buzos .swiper-slide {
     width: 280px; 
-    height: auto;
-    display: flex;
-    flex-direction: column;
+    height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
 }
 
 .carrusel-buzos .producto-card img {
     width: 100%;
-    height: 350px;
+    height: 300px;
     object-fit: cover;
     cursor: pointer;
     margin-bottom: 15px;
@@ -384,4 +330,68 @@ header.shrink .logo-dinamico {
 
 .menu-contenido a:hover {
     color: #666666;
+}
+
+/* Botón Flotante WhatsApp */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+    opacity: 0;             
+    visibility: hidden;     
+    transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.3s ease;
+}
+
+.whatsapp-float.show {
+    opacity: 1;             
+    visibility: visible;
+}
+
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* Footer Único y Unificado */
+.footer { 
+    background: #ffffff; 
+    padding: 60px 20px; 
+    text-align: center; 
+    border-top: 1px solid #eeeeee; 
+    margin-top: 40px;
+}
+
+.footer-links { 
+    display: flex; 
+    justify-content: center; 
+    gap: 20px; 
+    margin-top: 15px; 
+}
+
+.footer-links a { 
+    font-size: 11px; 
+    color: #000; 
+    text-decoration: none; 
+    text-transform: uppercase; 
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) { 
+    .grid-bloque { 
+        grid-template-columns: 1fr; 
+    } 
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
 }
