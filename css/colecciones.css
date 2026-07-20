@@ -1,0 +1,121 @@
+/* --- Header Fijo Oscuro para Colecciones --- */
+header {
+    background: rgba(255, 255, 255, 0.95) !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid #eee !important;
+}
+
+header .menu-btn, 
+header .ig-link {
+    color: #000000 !important;
+}
+
+header .logo-dinamico {
+    height: 25px !important;
+    width: auto !important;
+    content: url("../img/LOGO NEGRO.png") !important;
+}
+
+/* --- Forzar visibilidad del Botón de WhatsApp en Colecciones --- */
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    z-index: 9999;
+    opacity: 1 !important;
+    visibility: visible !important;
+    transition: transform 0.3s ease;
+}
+
+.whatsapp-float img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+}
+
+/* --- Estilos de la Grilla de Colecciones --- */
+.colecciones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+    padding: 150px 20px 50px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.coleccion-card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.coleccion-card img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    margin-bottom: 20px;
+    transition: filter 0.5s ease;
+}
+
+.coleccion-card h3 {
+    font-family: 'Metrim', sans-serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin: 0 0 15px 0;
+    text-transform: uppercase;
+}
+
+.btn-ver-coleccion {
+    align-self: flex-start;
+    padding: 10px 25px;
+    border: 1px solid #000;
+    color: #000;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.btn-ver-coleccion:hover {
+    background: #000;
+    color: #fff;
+}
+
+.nav-galeria { 
+    padding: 20px 40px; 
+    max-width: 1000px; 
+    margin: 0 auto; 
+}
+
+.btn-volver { 
+    align-self: flex-start;
+    padding: 10px 25px;
+    border: 1px solid #fff;
+    color: #fff;
+    background: #000;
+    text-decoration: none;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase; 
+}
+
+.btn-volver:hover {
+    background: #fff;
+    color: #000;
+}
+
+/* Ajuste del botón flotante para celulares */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
