@@ -124,11 +124,30 @@ header.shrink .logo-dinamico {
     margin-bottom: 30px; 
 }
 
+.texto-container p{ 
+    font-family: 'Metrim', sans-serif; 
+    font-size: 32px; 
+    letter-spacing: 4px; 
+    text-transform: uppercase; 
+    margin-bottom: 30px; 
+}
+
+
 .texto-container p { 
+    font-family: 'MADEAwelier', serif;
     font-size: 18px; 
     line-height: 1.7; 
     color: #333; 
     margin-bottom: 20px; 
+}
+
+/* --- ESTILOS PARA MÓVILES (Pantallas menores a 768px) --- */
+@media (max-width: 768px) {
+    .texto-container p {
+        width: 100%;       /* Ocupa todo el ancho de la pantalla del celular */
+        height:80px;
+        font-size: 10px;
+    }
 }
 
 .seccion-proceso { 
@@ -176,6 +195,7 @@ header.shrink .logo-dinamico {
     margin-bottom: 25px; 
     text-align: center;
 }
+
 
 .btn-ver-todo, 
 .btn-colecciones { 
@@ -234,6 +254,14 @@ header.shrink .logo-dinamico {
 .seccion-productos {
     padding-bottom: 20px;
 }
+
+
+.seccion-proceso .img1 img {
+    max-width: 600px; /* No pasará de este ancho en pantallas grandes */
+    width: 100%H;     /* Se adaptará al espacio disponible */
+    height: auto;
+}
+
 
 .carrusel-buzos {
     width: 100%;
@@ -393,5 +421,67 @@ header.shrink .logo-dinamico {
         height: 50px;
         bottom: 20px;
         right: 20px;
+    }
+}
+
+/* --- Reproductor de Audio Inmersivo para Galería --- */
+.audio-control-container {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 9998;
+}
+
+.btn-audio-galeria {
+    background: rgba(0, 0, 0, 0.85);
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 10px 18px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.btn-audio-galeria:hover {
+    background: #000000;
+    border-color: #ffffff;
+    transform: scale(1.05);
+}
+
+.btn-audio-galeria .icon-audio {
+    font-size: 14px;
+    line-height: 1;
+}
+
+/* Animación sutil de pulso cuando la música está reproduciéndose */
+.btn-audio-galeria.activo {
+    border-color: #ffffff;
+    animation: pulsoAudio 2s infinite ease-in-out;
+}
+
+@keyframes pulsoAudio {
+    0% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.4); }
+    70% { box-shadow: 0 0 0 8px rgba(255, 255, 255, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+}
+
+/* Responsividad para celulares (evita que tape el botón flotante de WhatsApp si está a la derecha, ubicándolo a la izquierda) */
+@media (max-width: 768px) {
+    .audio-control-container {
+        bottom: 20px;
+        left: 20px;
+    }
+    .btn-audio-galeria {
+        padding: 8px 14px;
+        font-size: 9px;
     }
 }
