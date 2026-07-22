@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GALERÍA | MALCRIOLLA</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <!-- CSS Externo -->
+    <link rel="stylesheet" href="css/galeria.css">
+</head>
+<body>
+    <!-- Menú Lateral y Overlay integrados -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <nav class="menu-lateral" id="menuLateral">
+        <button class="menu-cerrar" id="menuCerrar">&times;</button>
+        <div class="menu-contenido">
+            <a href="index.html">Inicio</a>
+            <a href="colecciones.html">Colecciones</a>
+        </div>
+    </nav>
+    
+    <header class="shrink no-transition">
+        <div class="header-estructura">
+            <button class="menu-btn"><span>&#9776;</span></button>
+            <div class="logo-bloque">
+                <a href="index.html">
+                    <img src="img/LOGO BLANCO.png" alt="MALCRIOLLA" class="logo-dinamico">
+                </a>
+            </div>
+            <a href="https://instagram.com/malcriolla" target="_blank" class="ig-link">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.25.057 2.1.24 2.846.53.77.3 1.32.657 1.896 1.233.575.575.933 1.126 1.233 1.896.29.745.473 1.595.53 2.846.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.057 1.25-.24 2.1-.53 2.846-.3.77-.657 1.32-1.233 1.896-.575.575-1.126.933-1.896 1.233-.745.29-1.595.473-2.846.53-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.25-.057-2.1-.24-2.846-.53-.77-.3-1.32-.657-1.896-1.233-.575-.575-.933-1.126-1.233-1.896-.29-.745-.473-1.595-.53-2.846-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85c-.057-1.25.24-2.1.53-2.846.3-.77.657-1.32 1.233-1.896.575-.575 1.126-.933 1.896-1.233.745-.29 1.595-.473 2.846-.53 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.259 0-3.667.014-4.947.072-1.277.058-2.148.26-2.91.556-.788.305-1.455.714-2.122 1.382-.668.667-1.334 1.077-2.122 1.382-.762.296-1.633.498-2.91.556-1.28.058-1.688.072-4.947.072s3.667-.014 4.947-.072c1.277-.058 2.148-.26 2.91-.556.788-.305 1.455-.714 2.122-1.382.667-.668 1.334-1.077 2.122-1.382.762-.296 1.633-.498 2.91-.556 1.28-.058 1.688-.072 4.947-.072zM12 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.441s.645 1.441 1.441 1.441 1.441-.645 1.441-1.441-.645-1.441-1.441-1.441z"/>
+                </svg>
+            </a>
+        </div>
+    </header>
+
+    <div class="galeria-grid" id="galeria">
+        <div class="galeria-item"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800" alt="Foto 1"></div>
+        <div class="galeria-item"><img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=800" alt="Foto 2"></div>
+        <div class="galeria-item"><img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=800" alt="Foto 3"></div>
+        <div class="galeria-item"><img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=800" alt="Foto 4"></div>
+    </div>
+    
+    <button id="btnAudio" class="audio-control">♫ Tocar música</button>
+    <audio id="audioGaleria" loop>
+        <source src="audio/tu-cancion.mp3" type="audio/mpeg">
+    </audio>
+    
+    <nav class="nav-galeria">
+        <a href="index.html" class="btn-volver">&#8592; VOLVER AL INICIO</a>
+    </nav>
+
+    <footer class="footer">
+        <div class="footer-contenido">
+            <p style="font-size: 10px; letter-spacing: 2px; text-transform: uppercase; color: #999;">&copy; 2026 MALCRIOLLA. TODOS LOS DERECHOS RESERVADOS.</p>
+            <div class="footer-links">
+                <a href="https://instagram.com/malcriolla" target="_blank" class="ig-link">INSTAGRAM</a>
+                <a href="https://malcriolla.mitiendanube.com/" target="_blank" class="ig-link">TIENDA</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal de Imagen -->
+    <div id="imageModal" style="display:none; position:fixed; z-index:10000; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.9); justify-content:center; align-items:center;">
+        <span onclick="document.getElementById('imageModal').style.display='none'" style="position:absolute; top:20px; right:30px; color:white; font-size:40px; cursor:pointer; z-index:10001;">&times;</span>
+        <div class="modal-img-container">
+            <img id="modalImg" alt="Vista ampliada">
+        </div>
+    </div>
+
+    <!-- JS Externo -->
+    <script src="js/galeria.js"></script>
+    <script src="js/main.js"></script>
+    
+    <!-- Script del Modal para la Galería (Eliminamos Luminous y activamos el modal propio) -->
+    
+    <!-- Botón Flotante WhatsApp -->
+    <a href="https://wa.me/5493411234567" class="whatsapp-float" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/3670/3670051.png" alt="WhatsApp">
+    </a>
+</body>
+</html>
