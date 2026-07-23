@@ -66,8 +66,14 @@ header .logo-dinamico {
     transition: transform 0.3s ease;
 }
 
-#img3 img {
-    height: 500px;
+/* Hace que ocupe 2 columnas pero manteniendo la altura de una foto vertical (350px) */
+.galeria-grid .item-horizontal {
+    grid-column: span 2;
+}
+
+.galeria-grid .item-horizontal img {
+    height: 150px; /* Muestra la misma altura exacta que las verticales */
+    object-fit: cover; /* Recorta sutilmente los lados para que llene el rectángulo sin deformarse */
 }
 
 .whatsapp-float {
@@ -201,6 +207,11 @@ header .logo-dinamico {
         right: 20px;
     }
 }
+
+/* Footer */
+.footer { background: #ffffff; padding: 60px 20px; text-align: center; border-top: 1px solid #eeeeee; margin-top: 40px; }
+.footer-links { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+.footer-links a { font-size: 11px; color: #000; text-decoration: none; text-transform: uppercase; }
 
 /* Footer */
 .footer { background: #ffffff; padding: 60px 20px; text-align: center; border-top: 1px solid #eeeeee; margin-top: 40px; }
