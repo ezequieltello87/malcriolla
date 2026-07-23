@@ -37,7 +37,32 @@
         </div>
     </header>
 
-    <div class="galeria-grid" id="galeria">
+    <!-- Reproductor de Audio con Navegación Simétrica -->
+    <div class="audio-container-grid">
+        <div class="audio-col-left">
+            <a href="colecciones.html" class="audio-flecha" id="btnAnterior">
+                <span class="flecha-simbolo">&#8249;</span> <span class="flecha-texto">ATRÁS</span>
+            </a>
+        </div>
+        
+        <div class="audio-col-center">
+            <button id="btnAudio" class="audio-control">
+                <span id="audioIcon">▶</span> <span id="audioText">Play</span>
+            </button>
+            <audio id="audioGaleria" loop>
+                <source src="God Save The Queen - Sex Pistols.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+
+        <div class="audio-col-right">
+            <button class="audio-flecha" id="btnSiguiente">
+                <span class="flecha-texto">SIG</span> <span class="flecha-simbolo">&#8250;</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Grilla de la Galería -->
+    <section class="galeria-grid" id="galeria">
         <div class="galeria-item"><img src="img/cap1/1.jpg" alt="Foto 1"></div>
         <div class="galeria-item"><img src="img/cap1/2.jpg" alt="Foto 2"></div>
         <div class="galeria-item"><img src="img/cap1/3.jpg" alt="Foto 3"></div>
@@ -87,15 +112,8 @@
         <div class="galeria-item"><img src="img/cap1/47.jpg" alt="Foto 3"></div>
         <div class="galeria-item"><img src="img/cap1/48.jpg" alt="Foto 4"></div>
         <div class="galeria-item"><img src="img/cap1/49.jpg" alt="Foto 4"></div>
-    </div>
+    </section>
     
-    
-    <button id="btnAudio" class="audio-control">
-    <span id="audioIcon">▶</span> <span id="audioText">Play</span>
-</button>
-<audio id="audioGaleria" loop>
-    <source src="God Save The Queen - Sex Pistols.mp3" type="audio/mpeg">
-</audio>
     <nav class="nav-galeria">
         <a href="index.html" class="btn-volver">&#8592; VOLVER AL INICIO</a>
     </nav>
@@ -121,8 +139,6 @@
     <!-- JS Externo -->
     <script src="js/galeria.js"></script>
     <script src="js/main.js"></script>
-    
-    <!-- Script del Modal para la Galería (Eliminamos Luminous y activamos el modal propio) -->
     
     <!-- Botón Flotante WhatsApp -->
     <a href="https://wa.me/5493411234567" class="whatsapp-float" target="_blank">
