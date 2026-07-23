@@ -136,6 +136,7 @@ header.shrink .logo-dinamico {
 .texto-container p { 
     font-family: 'MADEAwelier', serif;
     font-size: 18px; 
+    font-weight: 600;
     line-height: 1.7; 
     color: #333; 
     margin-bottom: 20px; 
