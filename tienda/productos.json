@@ -1,0 +1,106 @@
+[
+    { 
+        "id": 1, 
+        "nombre": "Buzo Pity Álvarez", 
+        "precio": 28500, 
+        "categoria": "buzos", 
+        "imagenes": [
+            "img/buzos/pity 1.jpg", 
+            "img/buzos/pity_detalles.jpg", 
+            "img/buzos/pity_espalda.jpg"
+        ], 
+        "talle": "L",
+        "descripcion": "Buzo rústico de algodón con estampa frontal de alta calidad. Edición limitada."
+    },
+    { 
+        "id": 2, 
+        "nombre": "Buzo Indio Solari", 
+        "precio": 29000, 
+        "categoria": "buzos", 
+        "imagen": "img/buzos/INDIO.jpg", 
+        "talle": "M" 
+    },
+    { 
+        "id": 4, 
+        "nombre": "Falda Elektra", 
+        "precio": 21000, 
+        "categoria": "falda", 
+        "imagenes": [
+            "img/faldas/1.webp", 
+            "img/faldas/2.webp", 
+            "img/faldas/3.webp",
+            "img/faldas/4.webp", 
+            "img/faldas/5.webp"
+        ],  
+        "talle": "S",
+        "descripcion": "Falda Elektra con estampa de ☠️\nSúper cómoda de algodón ☁️\n\nMEDIDAS:\nCintura: 31 CM\nCaderas: 41 CM\nLargo: 42 CM"
+    },
+
+    { 
+        "id": 10, 
+        "nombre": "White Rebellion", 
+        "precio": 12000, 
+        "categoria": "falda", 
+        "imagenes": [
+            "img/faldas/2/1.webp", 
+            "img/faldas/2/2.webp", 
+            "img/faldas/2/3.webp",
+            "img/faldas/2/4.webp", 
+            "img/faldas/2/5.webp"
+            
+        ],   
+        "talle": "Único" 
+    },
+
+    { 
+        "id": 3, 
+        "nombre": "Pantalón Cargo Negro", 
+        "precio": 35000, 
+        "categoria": "pantalon", 
+        "imagen": "img/pantalones/cargo.jpg", 
+        "talle": "M" 
+    },
+    
+    { 
+        "id": 5, 
+        "nombre": "Camisa Oversize Vintage", 
+        "precio": 24000, 
+        "categoria": "camisas", 
+        "imagen": "img/camisas/camisa1.jpg", 
+        "talle": "L" 
+    },
+    { 
+        "id": 6, 
+        "nombre": "Vestido Midi Urbano", 
+        "precio": 32000, 
+        "categoria": "vestidos", 
+        "imagen": "img/vestidos/vestido1.jpg", 
+        "talle": "M" 
+    },
+    { 
+        "id": 7, 
+        "nombre": "Bustier Corset Rock", 
+        "precio": 19500, 
+        "categoria": "bustier", 
+        "imagen": "img/bustier/bustier1.jpg", 
+        "talle": "S" 
+    },
+    { 
+        "id": 8, 
+        "nombre": "Remera Estampa Rock", 
+        "precio": 15000, 
+        "categoria": "remeras", 
+        "imagen": "img/remeras/remera1.jpg", 
+        "talle": "M" 
+    },
+    { 
+        "id": 9, 
+        "nombre": "Cinto Tachas Cuero", 
+        "precio": 12000, 
+        "categoria": "accesorios", 
+        "imagen": "img/accesorios/accesorio1.jpg", 
+        "talle": "Único" 
+    }
+
+    
+]
