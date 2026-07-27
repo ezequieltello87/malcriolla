@@ -1,26 +1,6 @@
 [
-    { 
-        "id": 1, 
-        "nombre": "Buzo Pity Álvarez", 
-        "precio": 28500, 
-        "categoria": "buzos", 
-        "imagenes": [
-            "img/buzos/pity 1.jpg", 
-            "img/buzos/pity_detalles.jpg", 
-            "img/buzos/pity_espalda.jpg"
-        ], 
-        "talle": "L",
-        "descripcion": "Buzo rústico de algodón con estampa frontal de alta calidad. Edición limitada."
-    },
-    { 
-        "id": 2, 
-        "nombre": "Buzo Indio Solari", 
-        "precio": 29000, 
-        "categoria": "buzos", 
-        "imagen": "img/buzos/INDIO.jpg", 
-        "talle": "M" 
-    },
-    { 
+
+{ 
         "id": 4, 
         "nombre": "Falda Elektra", 
         "precio": 21000, 
@@ -51,6 +31,29 @@
         ],   
         "talle": "Único" 
     },
+
+    { 
+        "id": 1, 
+        "nombre": "Buzo Pity Álvarez", 
+        "precio": 28500, 
+        "categoria": "buzos", 
+        "imagenes": [
+            "img/buzos/pity 1.jpg", 
+            "img/buzos/pity_detalles.jpg", 
+            "img/buzos/pity_espalda.jpg"
+        ], 
+        "talle": "L",
+        "descripcion": "Buzo rústico de algodón con estampa frontal de alta calidad. Edición limitada."
+    },
+    { 
+        "id": 2, 
+        "nombre": "Buzo Indio Solari", 
+        "precio": 29000, 
+        "categoria": "buzos", 
+        "imagen": "img/buzos/INDIO.jpg", 
+        "talle": "M" 
+    },
+    
 
     { 
         "id": 3, 
